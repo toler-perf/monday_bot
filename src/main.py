@@ -2,6 +2,7 @@ from telebot import TeleBot
 
 from config import settings
 from handlers.check_age import register_check_age_handler
+from handlers.document_type import register_document_type
 from handlers.media import register_media_handler
 from handlers.start import register_start_handler
 from handlers.help import register_help_handler
@@ -19,6 +20,7 @@ def main() -> None:
     register_help_handler(bot)
     register_media_handler(bot)
     register_check_age_handler(bot)
+    register_document_type(bot)
     
     print('Бот запущен...')
     bot.infinity_polling()
