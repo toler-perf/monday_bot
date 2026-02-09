@@ -6,6 +6,7 @@ from handlers.document_type import register_document_type
 from handlers.media import register_media_handler
 from handlers.start import register_start_handler
 from handlers.help import register_help_handler
+from handlers.text_type import register_text_type
 
 def main() -> None:
     '''
@@ -21,6 +22,7 @@ def main() -> None:
     register_media_handler(bot)
     register_check_age_handler(bot)
     register_document_type(bot)
+    register_text_type(bot)
     
     print('Бот запущен...')
     bot.infinity_polling()

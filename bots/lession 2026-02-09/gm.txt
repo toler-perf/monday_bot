@@ -1,0 +1,13 @@
+'json': {'message_id': 400,
+          'from': {'id': 963081479,
+                   'is_bot': False,
+                   'first_name': 'Stepan',
+                   'last_name': 'Lavrentiev',
+                   'username': 'Couch_Potato_1407',
+                   'language_code': 'ru'},
+          'chat': {'id': -873575281,
+                   'title': 'Test Matrix group',
+                   'type': 'group',
+                   'all_members_are_administrators': True},
+          'date': 1675876984,
+          'text': 'smth'}}
