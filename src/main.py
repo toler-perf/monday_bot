@@ -4,6 +4,7 @@ from config import settings
 from handlers.check_age import register_check_age_handler
 from handlers.document_type import register_document_type
 from handlers.media import register_media_handler
+from handlers.register import register_date
 from handlers.start import register_start_handler
 from handlers.help import register_help_handler
 from handlers.text_type import register_text_type
@@ -23,6 +24,7 @@ def main() -> None:
     register_check_age_handler(bot)
     register_document_type(bot)
     register_text_type(bot)
+    register_date(bot)
     
     print('Бот запущен...')
     bot.infinity_polling()
