@@ -11,24 +11,18 @@ def register_check_age_handler(
     :param bot: Экзмпляр бота
     :type bot: TeleBot
     '''
-    @bot.message_handler(commands=['check_age'])
-    def check_age_handler(
+    @bot.message_handler(commands=["check_age"])
+    def check_age(
         message: Message
-    ) -> None:
-        '''
-        Обработчик команды check_age
-        
-        :param message: Сообщение пользователя
-        :type message: Message
-        '''
+    ):
         user = message.from_user
-        
-        text = 'Ввведите свой возраст'
+        text = "Отправь мне свой возраст"
         
         msg = bot.send_message(
             chat_id=user.id,
             text=text
         )
+        
         bot.register_next_step_handler(
             message=msg,
             callback=second_step
@@ -36,17 +30,17 @@ def register_check_age_handler(
         
     def second_step(
         message: Message
-    ) -> None:
+    ):
         user = message.from_user
+        
         age = int(message.text)
         
         if age >= 18:
-            text = 'Взорслый'
+            text = "Ты совершенолетний"
         else:
-            text = 'Маленький'
+            text = "Ты еще маленький"
             
         bot.send_message(
             chat_id=user.id,
             text=text
         )
-        
