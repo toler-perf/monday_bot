@@ -1,6 +1,6 @@
 # Reply клавиатуры
 from telebot import TeleBot
-from telebot.types import Message, ReplyKeyboardMarkup, KeyboardButton
+from telebot.types import Message, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 
 
 bot = TeleBot("8522205710:AAHQK-KBxRgUyO-FIZoJNKTFgNzdfCdlDMM")
@@ -18,15 +18,27 @@ def start(message: Message):
     
     btn1 = KeyboardButton("Кнопка 1")
     btn2 = KeyboardButton("Кнопка 2")
-    
     markup.add(btn1, btn2)
     
     text = "Привет"
     
-    bot.send_message(
+    msg = bot.send_message(
         chat_id=user.id,
         text=text,
         reply_markup=markup
     )
     
+    bot.register_next_step_handler(msg, answer)
+    
+def answer(message: Message):
+    user = message.from_user
+    text = "Привет"
+    
+    bot.send_message(
+        chat_id=user.id,
+        text=text,
+        reply_markup=ReplyKeyboardRemove()
+    )
+
+
 bot.infinity_polling()
